@@ -1,9 +1,13 @@
 const express = require("express");
 require("dotenv").config();
 
+const coordsRoute = require("./routes/coords_routes.js");
+
 const app = express();
 
-app.use((req, res) => res.json({ message: "negro" }));
+app.use(express.json());
+
+app.use("/coords", coordsRoute);
 
 const port = process.env.PORT;
 
