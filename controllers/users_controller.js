@@ -1,6 +1,14 @@
 const prisma = require("../lib/prisma.ts");
 const { body, validationResult, matchedData } = require("express-validator");
 
+const getTopUsers = async (req, res) => {
+  const allUsers = await prisma.user.findMany({
+    orderBy: { time: "asc" },
+  });
+  const topUsers = allUsers.slice(0, 3);
+  res.json(topUsers);
+};
+
 const createUser = [
   body("username")
     .trim()
@@ -10,7 +18,6 @@ const createUser = [
     .withMessage("Username must be between 4 and 24"),
   body("time"),
   async (req, res) => {
-    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty())
       return res.status(422).json({ errors: errors.array() });
@@ -26,4 +33,4 @@ const createUser = [
   },
 ];
 
-module.exports = { createUser };
+module.exports = { createUser, getTopUsers };
