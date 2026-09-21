@@ -5,7 +5,9 @@ const coordsRoute = require("./routes/coords_routes.js");
 
 const app = express();
 
+app.use(require("cors")());
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
 app.use("/coords", coordsRoute);
 

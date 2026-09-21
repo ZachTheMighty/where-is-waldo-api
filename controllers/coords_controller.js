@@ -1,5 +1,7 @@
+const prisma = require("../lib/prisma.ts");
+
 const checkCoords = async (req, res) => {
-  let foundCharacter = false;
+  let response = { character: { id: null }, found: false };
 
   const characters = await prisma.character.findMany();
   characters.forEach((character) => {
@@ -9,10 +11,10 @@ const checkCoords = async (req, res) => {
       req.body.y >= character.minY &&
       req.body.y <= character.maxY
     )
-      foundCharacter = true;
+      response = { character, found: true };
   });
 
-  res.json({ foundCharacter });
+  res.json(response);
 };
 
 module.exports = { checkCoords };
