@@ -23,13 +23,13 @@ const createUser = [
       return res.status(422).json({ errors: errors.array() });
 
     const { username, time } = matchedData(req);
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         name: username,
         time,
       },
     });
-    res.json({ message: "created user successfully" });
+    res.json({ user });
   },
 ];
 
