@@ -3,34 +3,34 @@ const prisma = require("./lib/prisma.ts");
 async function main() {
   await prisma.coord.create({
     data: {
-      minX: 26,
-      maxX: 27,
-      minY: 34,
-      maxY: 38,
+      minX: 44,
+      minY: 516,
+      maxX: 107,
+      maxY: 561,
     },
   });
   await prisma.coord.create({
     data: {
-      minX: 59,
-      maxX: 61,
-      minY: 38,
-      maxY: 41,
+      minX: 484,
+      minY: 420,
+      maxX: 518,
+      maxY: 479,
     },
   });
   await prisma.coord.create({
     data: {
-      minX: 2,
-      maxX: 5,
-      minY: 42,
-      maxY: 45,
+      minX: 1150,
+      minY: 469,
+      maxX: 1183,
+      maxY: 511,
     },
   });
   await prisma.coord.create({
     data: {
-      minX: 63,
-      maxX: 64,
-      minY: 47,
-      maxY: 49,
+      minX: 1216,
+      minY: 579,
+      maxX: 1236,
+      maxY: 612,
     },
   });
 }
