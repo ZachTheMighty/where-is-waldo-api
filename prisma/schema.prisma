@@ -12,13 +12,13 @@ datasource db {
   provider = "postgresql"
 }
 
-model Character {
+model Coord {
   id Int @id @default(autoincrement())
   minX Int @map("min_x")
   maxX Int @map("max_x")
   minY Int @map("min_y")
   maxY Int @map("max_y")
-  @@map("characters")
+  @@map("coords")
 }
 
 model User {

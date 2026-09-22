@@ -3,15 +3,15 @@ const prisma = require("../lib/prisma.ts");
 const checkCoords = async (req, res) => {
   let response = { character: { id: null }, found: false };
 
-  const characters = await prisma.character.findMany();
-  characters.forEach((character) => {
+  const coords = await prisma.coord.findMany();
+  coords.forEach((coord) => {
     if (
-      req.body.x >= character.minX &&
-      req.body.x <= character.maxX &&
-      req.body.y >= character.minY &&
-      req.body.y <= character.maxY
+      req.body.x >= coord.minX &&
+      req.body.x <= coord.maxX &&
+      req.body.y >= coord.minY &&
+      req.body.y <= coord.maxY
     )
-      response = { character, found: true };
+      response = { coord, found: true };
   });
 
   res.json(response);
