@@ -3,15 +3,15 @@ const prisma = require("./lib/prisma.ts");
 async function main() {
   await prisma.coord.create({
     data: {
-      minX: 26,
+      minX: 25,
       maxX: 27,
       minY: 34,
-      maxY: 38,
+      maxY: 39,
     },
   });
   await prisma.coord.create({
     data: {
-      minX: 59,
+      minX: 60,
       maxX: 61,
       minY: 38,
       maxY: 41,
@@ -30,7 +30,7 @@ async function main() {
       minX: 63,
       maxX: 64,
       minY: 47,
-      maxY: 49,
+      maxY: 50,
     },
   });
 }
