@@ -1,5 +1,10 @@
 const prisma = require("../lib/prisma.ts");
 
+const getAllCoords = async (req, res) => {
+  const coords = await prisma.coord.findMany();
+  res.json(coords);
+};
+
 const checkCoords = async (req, res) => {
   let response = { coord: { id: null }, found: false };
 
@@ -17,4 +22,4 @@ const checkCoords = async (req, res) => {
   res.json(response);
 };
 
-module.exports = { checkCoords };
+module.exports = { checkCoords, getAllCoords };
