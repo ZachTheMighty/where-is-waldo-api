@@ -14,7 +14,7 @@ const createUser = [
     .trim()
     .notEmpty()
     .withMessage("Username can't empty")
-    .isLength({ min: 4, max: 24 })
+    .isLength({ min: 4, max: 50 })
     .withMessage("Username must be between 4 and 24"),
   body("time"),
   async (req, res) => {
