@@ -1,6 +1,8 @@
 const prisma = require("./lib/prisma.ts");
 
 async function main() {
+  await prisma.coord.deleteMany({});
+
   await prisma.coord.create({
     data: {
       minX: 25,
